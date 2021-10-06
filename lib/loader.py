@@ -16,10 +16,10 @@ def load_combo(file, separator=':'):
    except FileNotFoundError:
       print("Please make sure that file exists and don't forget the extention .txt .\n")
 
-def load_proxies(type):
+def load_proxies(type, file='proxies.txt'):
    try:
       if type in ['https', 'http', 'socks4', 'socks5'] :
-         with open('proxies.txt', 'r') as file:
+         with open(file, 'r') as file:
             for line in file.readlines():
                line = line.replace('\n','')
                proxies.append({'http': f'{type}://{line}','https': f'{type}://{line}',})

@@ -4,7 +4,7 @@ from concurrent import futures
 
 
 loader.load_combo('amine.txt')
-loader.load_proxies('https')
+loader.load_proxies('https', file='proxies.txt')
 
 def check(email, password):
    proxy = choice(loader.proxies)

