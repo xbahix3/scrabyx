@@ -18,9 +18,7 @@ def retry(function, retries=5):
          except requests.ConnectionError:
             tries += 1
             rety += 1
-
    return wrap_data
-
 
 class get_response:
    @retry
@@ -39,25 +37,18 @@ class get_response:
       if statement in self.response.text:
          fail += 1
 
-   def custom(self, statement=''):
+   def custom(self, save=False, statement='', save_this=''):
       global custom
       if statement in self.response.text:
          custom += 1
+         if save:
+            open('custom.txt', 'a', encoding='utf-8').writelines(save_this)
          
    def _banned(self):
       global ban
-      if self.response.status_code is 200:
+      if self.response.status_code == 200:
          ban+=1
 
-
 def result(update=0):
-   from time import sleep
    print(f'success={success} fail={fail} custom={custom} retries={rety} ban={ban}')
-   sleep(update)
-
-
-
-
-
-#a = get_response('GET', 'https://www.google.com').fail(statuscode=200)
 

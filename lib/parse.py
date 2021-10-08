@@ -20,10 +20,3 @@ def save(value, output='output.txt'):
    open(output, 'a', encoding='utf-8').writelines(value)
       
       
-      
-#phrase = 'Hello im testing im testing im testing im testing this'
-## Now parsing this example and remove duplicated data 
-#parse(phrase).extract('Hello', remove_duplicates=True, strict='wih')
-## output : [' im testing im testing ']
-## output when remove_duplicates is False :
-

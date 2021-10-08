@@ -22,7 +22,8 @@ def load_proxies(type, file='proxies.txt'):
          with open(file, 'r') as file:
             for line in file.readlines():
                line = line.replace('\n','')
-               proxies.append({'http': f'{type}://{line}','https': f'{type}://{line}',})
+               proxies.append({'http':f'{type}://{line}/','https':f'{type}://{line}/',})
    
    except FileNotFoundError:
       print("Please make sure that file exists and don't forget the extention .txt .\n")
+      
